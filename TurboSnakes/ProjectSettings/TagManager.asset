@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - killsPlayer
+  - Turbo
+  - Brake
+  - Points
+  - User
   layers:
   - Default
   - TransparentFX

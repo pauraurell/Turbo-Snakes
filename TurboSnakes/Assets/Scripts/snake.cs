@@ -6,13 +6,15 @@ public class snake : MonoBehaviour
     public float rotation_speed = 300f;
     float horizontal = 0f;
     public string InputAxis = "Horizontal";
-    public GameObject clientObj;
+    public CharacterController myCC;
+   
 
     // Update is called once per frame
     void Update()
     {
+        BasicMovement();
         // horizontal = Input.GetAxisRaw(InputAxis);
-        if (Input.GetKey(KeyCode.D))
+        /*if (Input.GetKey(KeyCode.D))
         {
             clientObj.GetComponent<ClientUDP>().AddInput(KeyCode.D, "Pressed");
         }
@@ -50,6 +52,26 @@ public class snake : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.M))
         {
             clientObj.GetComponent<ClientUDP>().AddInput(KeyCode.M, "KeyUp");
+        }*/
+    }
+
+    void BasicMovement()
+    {
+        if (Input.GetKey(KeyCode.W))
+        {
+            myCC.Move(transform.up * Time.deltaTime * speed);
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            myCC.Move(-transform.right * Time.deltaTime * speed);
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            myCC.Move(-transform.up * Time.deltaTime * speed);
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            myCC.Move(transform.right * Time.deltaTime * speed);
         }
     }
 
